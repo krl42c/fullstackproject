@@ -17,6 +17,7 @@ OR
 ./build.sh
 ```
 
+Nginx will launch on: [http://localhost:4200](http://localhost:4200).
 
-
+The spring-boot API runs on [http://localhost:8080/api/users](http://localhost:8080/api/users) and [http://localhost:8080/api/user_types](http://localhost:8080/api/user_types).
 
