@@ -6,6 +6,7 @@
             <th scope="col" >Name <img (click)="sortName()"class="filter" src="assets/filter.png"></th>
             <th scope="col" >Last name <img (click)="sortLastName()"class="filter" src="assets/filter.png"></th>
             <th scope="col" >Email <img (click)="sortEmail()"class="filter" src="assets/filter.png"></th>
+            <th scope="col"> Type </th>
             <th scope="col">Options</th>
             <button class="btn btn-outline-success" (click)="createUser()">Create user</button>
           </tr>
@@ -16,6 +17,7 @@
         <td>{{user.name}}</td>
         <td>{{user.last_name}}</td>
         <td><a href="mailto:{{user.email}}">{{user.email}}</a></td>
+        <td>{{user.user_type.type}}</td>
         <td class="options"><button type="button" class="btn btn-outline-danger"(click)="deleteUser(user)">Delete</button> 
             <button class="btn btn-outline-secondary" (click)="editUser(user)">Edit</button>
         </td>

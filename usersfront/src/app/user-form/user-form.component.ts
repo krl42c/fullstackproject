@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -28,7 +28,7 @@ export class UserFormComponent implements OnInit {
   name_v !: boolean;
   last_name_v !: boolean;
   email_v !: boolean;
-  user_type !: boolean;
+  user_type_v !: boolean;
 
   constructor(private userService: UserService, private toastr: ToastrService, private router: Router) {
     this.getUserTypes();
@@ -38,7 +38,6 @@ export class UserFormComponent implements OnInit {
       this.userForm.get("name")?.setValue(this.editUser.name);
       this.userForm.get("last_name")?.setValue(this.editUser.last_name);
       this.userForm.get("email")?.setValue(this.editUser.email);
-      this.userForm.get("user_type")?.setValue(this.editUser.user_type.type);
     }
   }
 
@@ -56,6 +55,7 @@ export class UserFormComponent implements OnInit {
     let last_name = this.userForm.get("last_name")!.value;
     let email = this.userForm.get("email")!.value;
     let idUserType = this.userForm.get("user_type")!.value;
+    console.log(idUserType + " idusertype");
 
     let userType: UserType[] = this.userTypes.filter(elem => {
       return elem.id == idUserType;
@@ -63,7 +63,10 @@ export class UserFormComponent implements OnInit {
 
     if (this.userForm.valid) {
       if (this.editMode) {
-        this.userService.editUser(new User(this.editUser.id, name, last_name, email, userType[0])).subscribe(data => {
+        if(userType[0].type == null) {
+         // userType[0] = new UserType(4,"Guest");
+        }
+         this.userService.editUser(new User(this.editUser.id, name, last_name, email, userType[0])).subscribe(data => {
 
         },
           (error) => {
@@ -71,6 +74,7 @@ export class UserFormComponent implements OnInit {
           },
           () => {
             this.toastr.success("User updated successfully");
+            console.log(userType[0]);
           }
         );
       }
@@ -87,7 +91,8 @@ export class UserFormComponent implements OnInit {
     } else {
       this.name_v = this.userForm.get("name")!.invalid;
       this.last_name_v = this.userForm.get("last_name")!.invalid;
-
+      this.email_v = this.userForm.get("email")!.invalid; 
+      this.user_type_v = this.userForm.get("user_type")!.invalid; 
     }
   }
 }

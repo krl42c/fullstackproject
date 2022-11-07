@@ -20,7 +20,7 @@
         <select formControlName="user_type" name="type">
             <option [value]="type.id" *ngFor="let type of userTypes">{{type.type}}</option>
         </select>
-        <div style="color:red"*ngIf="user_type">User type required</div>
+        <div style="color:red"*ngIf="user_type_v">User type required</div>
     </div>
     <button *ngIf="!editMode" type="submit" class="btn btn-primary">Create</button>
     <button *ngIf="editMode" type="submit" class="btn btn-primary">Edit</button>
