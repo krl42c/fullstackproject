@@ -1,0 +1,17 @@
+<div class="user_list">
+    <table class="table table-striped custom_table">
+        <thead>
+            <tr>
+                <th scope="col">ID <img (click)="sortID()"class="filter" src="assets/filter.png"></th> 
+                <th scope="col">Type <img (click)="sortType()"class="filter" src="assets/filter.png"></th>
+                <th scope="col">Options</th>
+                <button class="btn btn-outline-success"(click)="createUserType()"> Create type</button>
+            </tr>
+        </thead>
+        <tr *ngFor="let userType of userTypeList">
+            <td>{{userType.id}}</td>
+            <td>{{userType.type}}</td>
+            <td class="options"><button class="btn btn-outline-danger" (click)="deleteUserType(userType)">Delete</button> <button class="btn btn-outline-info" (click)="editUserType(userType)">Edit</button></td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,28 @@
+<div class="custom_form">
+<form [formGroup]="userForm" (ngSubmit)="createUser()">
+    <div class="form-group">
+        <label for="inputName">Name</label>       
+        <input formControlName="name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name"> 
+        <div style="color: red"*ngIf="name_v">Name is required</div>
+    </div>
+    <div class="form-group">
+        <label for="inputLastName">Last name</label> 
+        <input formControlName="last_name" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter last name">
+        <div style="color:red" *ngIf="last_name_v">Last name is required</div>
+    </div>
+    <div class="form-group">
+        <label for="inputEmail">Email</label>
+        <input formControlName="email" type="email" class="form-control" id="exampleInputPassword1" placeholder="Enter email">
+        <div style="color:red" *ngIf="email_v">Email required / Wrong email format</div>
+    </div>
+    <div class="form-group">
+        <label for="inputUserType">User type</label>
+        <select formControlName="user_type" name="type">
+            <option [value]="type.id" *ngFor="let type of userTypes">{{type.type}}</option>
+        </select>
+        <div style="color:red"*ngIf="user_type">User type required</div>
+    </div>
+    <button *ngIf="!editMode" type="submit" class="btn btn-primary">Create</button>
+    <button *ngIf="editMode" type="submit" class="btn btn-primary">Edit</button>
+</form>
+</div>

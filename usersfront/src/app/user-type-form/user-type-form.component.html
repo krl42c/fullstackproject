@@ -1,0 +1,10 @@
+<div class="custom_form">
+<form  [formGroup]="userTypeForm" (ngSubmit)="createUserType()">
+    <div class="form-group">
+        <label for="inputName">Type</label>
+        <input formControlName="type" type="text" class="form-control" id="type" placeholder="Enter name">
+    </div>
+   <button *ngIf="!editMode" type="submit" class="btn btn-primary">Create</button>
+   <button *ngIf="editMode" type="submit" class="btn btn-primary">Edit</button>
+</form>
+</div>

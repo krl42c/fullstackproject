@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  back:
+    build: ./usersbackend/
+    ports:
+      - "8080:8080"
+  front:
+    build: ./usersfront/
+    links:
+      - "back"
+    depends_on:
+      - "back"
+    ports:
+      - "4200:4200"

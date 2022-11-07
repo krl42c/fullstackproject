@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+   /* background-color: #F5FBEF;*/
+   background-color: #F5F1ED;
+}
+.col {
+ /*   background-color: #503D42; */
+ background-color: #69585F;
+    font-size: 1.5em;
+    color: #F5F1ED;
+}
+.menu_item {
+    color:#F5F1ED;
+}
+
+.menu_head {
+/*    color: #F4ECD6;*/
+    padding:1%;
+    color:white;
+    font-size: 1.5em;
+}
+
+.custom_table {
+    margin-top: 2%;
+    padding: 2%;
+}
+
+.custom_table thead {
+    background-color: #92AD94;
+    background-color: #69585F;
+    color:#F5F1ED;
+}
+
+.custom_table td {
+    margin-left: 2%;
+}
+
+.filter {
+    width: 20px;
+    height: 20px;
+}
+
+.custom_form {
+    padding: 5%;
+    margin-right: 50%;
+}
